@@ -1,7 +1,7 @@
 %global real_name nullfs
 
 Name:       %{real_name}-kmod-common
-Version:    0.21
+Version:    0.22
 Release:    1%{?dist}
 Summary:    A virtual file system that behaves like /dev/null
 License:    GPLv3+
@@ -32,6 +32,9 @@ This package contains common files.
 %doc README.md
 
 %changelog
+* Mon Feb 09 2026 Simone Caronni <negativo17@gmail.com> - 0.22-1
+- Update to 0.22.
+
 * Mon Dec 01 2025 Simone Caronni <negativo17@gmail.com> - 0.21-1
 - Update to 0.21.
 
