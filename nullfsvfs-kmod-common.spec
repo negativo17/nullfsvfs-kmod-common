@@ -1,17 +1,20 @@
-%global real_name nullfs
+%global real_name nullfsvfs
 
 Name:       %{real_name}-kmod-common
-Version:    0.22
+Version:    0.26
 Release:    1%{?dist}
 Summary:    A virtual file system that behaves like /dev/null
 License:    GPLv3+
-URL:        https://github.com/abbbi/nullfsvfs
+URL:        https://github.com/abbbi/%{real_name}
 BuildArch:  noarch
 
-Source0:    %{url}/archive/v%{version}.tar.gz#/nullfsvfs-%{version}.tar.gz
+Source0:    %{url}/archive/v%{version}.tar.gz#/%{real_name}-%{version}.tar.gz
 
 Requires:   %{real_name}-kmod = %{?epoch:%{epoch}:}%{version}
 Provides:   %{real_name}-kmod-common = %{?epoch:%{epoch}:}%{version}
+
+# Renamed from nullfs to nullfsvfs in 0.23+
+Obsoletes:  nullfs-kmod-common < %{?epoch:%{epoch}:}%{version}
 
 %description
 A virtual file system that behaves like /dev/null. It can handle regular file
@@ -25,13 +28,16 @@ testing with applications that require directory structures.
 This package contains common files.
  
 %prep
-%autosetup -p1 -n nullfsvfs-%{version}
+%autosetup -p1 -n %{real_name}-%{version}
 
 %files
 %license LICENSE
 %doc README.md
 
 %changelog
+* Sun Mar 08 2026 Simone Caronni <negativo17@gmail.com> - 0.26-1
+- Rename to nullfsvfs and update to 0.26.
+
 * Mon Feb 09 2026 Simone Caronni <negativo17@gmail.com> - 0.22-1
 - Update to 0.22.
 
